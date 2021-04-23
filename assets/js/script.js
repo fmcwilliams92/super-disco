@@ -22,17 +22,29 @@ function init(){
   // load all of the tasks from localStorage
   loadTasks();
 
+  // get the current hour
   var currentHour = currentDate.hours();
-  if(currentHour < 9){
-    $(".description").addClass("future");
-  }
-  else if(currentHour > 17){
+
+  //default all of the tasks as future then update the rest
+  $(".description").addClass("future");
+
+  // if it's past 5pm, update all the tasks to past (removing the future class)
+  if(currentHour > 17){
+    $(".description").removeClass("future");
     $(".description").addClass("past");
   }
+  // else, it's between 9am and 5pm, so update the tasks to the correct class
   else{
-    for(var i = currentHour; i > 9; i--){
+    /* for all of the hours between 9am and the hour before the current hour
+    * remove the future class and add the past class
+    * NOTE: i - 9, because that should put us at the correct index of the jQuery array for the tasks
+    */
+    for(var i = currentHour - 1; i >= 9; i--){
+      $(".description").eq(i - 9).removeClass("future");
       $(".description").eq(i - 9).addClass("past");
     }
+    // for the current hour, remove the future class and add the present class
+    $(".description").eq(currentHour - 9).removeClass("future");
     $(".description").eq(currentHour - 9).addClass("present");
   }
 }
