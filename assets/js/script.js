@@ -5,14 +5,12 @@ var tasks = $('.description');
 // this is the saved tasks, that will be used for the load and saving of tasks
 var savedTasks = [];
 
-
-
 // call the init function
 init();
 
 // This function will get the current time, color the tasks, and load the tasks
 // from localStorage
-function init(){
+function init() {
 
   // getting the current date from moment.js
   var currentDate = moment();
@@ -31,7 +29,7 @@ function init(){
     $(".description").addClass("past");
   }
   // else, it's between 9am and 5pm, so update the tasks to the correct class
-  else{
+  else {
     /* for all of the hours between 9am and the hour before the current hour
     * remove the future class and add the past class
     * NOTE: i - 9, because that should put us at the correct index of the jQuery array for the tasks
@@ -70,7 +68,7 @@ function loadTasks() {
   }
 
   // loop over savedTasks and update the HTML with the tasks
-  for(var i = 0; i < savedTasks.length; i++){
+  for(var i = 0; i < savedTasks.length; i++) {
     tasks[i].value = savedTasks[i];
   }
 };
