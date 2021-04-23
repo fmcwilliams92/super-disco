@@ -19,9 +19,6 @@ function init(){
   // set the html value to the currentDate variable formatted to "Day of week, Month Day"
   $("#currentDay").html(currentDate.format("dddd, MMMM DD"));
 
-  // load all of the tasks from localStorage
-  loadTasks();
-
   // get the current hour
   var currentHour = currentDate.hours();
 
@@ -47,7 +44,10 @@ function init(){
     $(".description").eq(currentHour - 9).removeClass("future");
     $(".description").eq(currentHour - 9).addClass("present");
   }
-}
+
+    // load all of the tasks from localStorage
+    loadTasks();
+};
 
 // delete todo function
 
