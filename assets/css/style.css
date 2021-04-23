@@ -62,7 +62,7 @@ body {
 }
 
 /* save button */
-.saveBtn {
+.saveBtn{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -70,7 +70,7 @@ body {
   color: white;
 }
 
-.saveBtn :hover {
+.saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
