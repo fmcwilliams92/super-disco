@@ -21,6 +21,7 @@ function init() {
     $(".description").eq(currentHour - 9).removeClass("future");
     $(".description").eq(currentHour - 9).addClass("present");
   }
+  loadTasks();
 };
 
 init();
@@ -31,11 +32,6 @@ function saveTask(index) {
 };
 
 function loadTasks() {
-  savedTasks = JSON.parse(localStorage.getItem("savedTasks"));
-
-  if (!savedTasks) {
-    savedTasks = []
-  }
   for(var i = 0; i < savedTasks.length; i++) {
     tasks[i].value = savedTasks[i];
   }

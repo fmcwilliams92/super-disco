@@ -75,3 +75,8 @@ body {
   transition: all .3s ease-in-out;
 }
 
+.saveButtonIcon {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
